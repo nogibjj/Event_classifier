@@ -36,7 +36,7 @@ features = [lda.get_document_topics(bow) for bow in doc_term_matrix]
 # You'll need to convert the features into a format suitable for the classifier
 
 # Splitting data for training and testing
-X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2)
 
 # Training a classifier
 classifier = LogisticRegression()
@@ -58,7 +58,7 @@ dict_of_lists2 = [{label: value for label, value in inner_list} for inner_list i
 # Determine the maximum label across all inner lists
 max_label2 = max(max(d.keys(), default=-1) for d in dict_of_lists2)
 
-# Create a new list for each inner list with values for each label, defaulting to 0 if the label is missing
+# Create a new list for each inner list with values for giteach label, defaulting to 0 if the label is missing
 collapsed_X_test = [
     [d.get(label, 0.0) for label in range(max_label2 + 1)] for d in dict_of_lists2
 ]
@@ -93,7 +93,7 @@ features = [lda.get_document_topics(bow) for bow in doc_term_matrix]
 # You'll need to convert the features into a format suitable for the classifier
 
 # Splitting data for training and testing
-X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2)
 
 # Training a classifier
 classifier = LogisticRegression()
